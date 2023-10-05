@@ -4,13 +4,16 @@ import DeleteButton from "./DeleteButton";
 import UpdateButton from "./UpdateButton";
 
 const PostList = async () => {
-  await new Promise((resolve) => setTimeout(resolve, 15000));
+  let posts = [];
+  try {
+    const data = await fetch("http://localhost:3000/api/post", {
+      cache: "no-store",
+    });
 
-  const data = await fetch("http://127.0.0.1:3000/api/post", {
-    cache: "no-store",
-  });
-
-  const posts = await data.json();
+    posts = await data.json();
+  } catch (error) {
+    console.log(error);
+  }
 
   return (
     <div className="flex flex-col justify-between items-center min-h-screen bg-gray-100">
