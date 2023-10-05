@@ -3,7 +3,7 @@ import React from "react";
 const UsersList = async () => {
   await new Promise((resolve) => setTimeout(resolve, 2000));
 
-  const data = await fetch("https://jsonplaceholder.typicode.com/users");
+  const data = await fetch("http://127.0.0.1:3000/api/user");
 
   const users = await data.json();
 
@@ -11,7 +11,7 @@ const UsersList = async () => {
     <>
       <h1 className="text-4xl text-gray-800 font-bold">Users List</h1>
       {users.map((post) => (
-        <p key={post.id}>{post.username}</p>
+        <p key={post.id}>{post.name}</p>
       ))}
     </>
   );

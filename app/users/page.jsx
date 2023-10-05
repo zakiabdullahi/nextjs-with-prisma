@@ -3,7 +3,7 @@ import PostList from "../posts/PostList";
 import UsersList from "./UserList";
 
 const UsersPage = () => {
-  return <div>USersPage</div>;
+  return <UsersList />;
 };
 
 export default UsersPage;
