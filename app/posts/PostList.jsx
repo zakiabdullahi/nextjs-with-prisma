@@ -6,7 +6,7 @@ import UpdateButton from "./UpdateButton";
 const PostList = async () => {
   let posts = [];
   try {
-    const data = await fetch("http://localhost:3000/api/post", {
+    const data = await fetch("http://127.0.0.1:3000/api/post", {
       cache: "no-store",
     });
 

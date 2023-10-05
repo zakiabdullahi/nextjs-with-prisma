@@ -4,8 +4,15 @@ import prisma from '../../../prisma/client'
 
 export const GET = async () => {
 
-    const postsInfo = await prisma.post.findMany();
-    return NextResponse.json(postsInfo);
+    try {
+
+        const postsInfo = await prisma.post.findMany();
+        return NextResponse.json(postsInfo);
+    } catch (error) {
+        console.log("ERROR[GET_POSTS]", error)
+
+    }
+
 
 };
 

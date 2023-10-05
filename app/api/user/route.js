@@ -7,9 +7,17 @@ import prisma from "../../../prisma/client";
 
 export const GET = async (req) => {
 
-    const usersInfo = await prisma.user.findMany();
+    try {
+        const usersInfo = await prisma.user.findMany();
+        return NextResponse.json(usersInfo);
 
-    return NextResponse.json(usersInfo);
+    } catch (error) {
+        console.log("ERROR[GET_USERS]", error)
+
+
+    }
+
+
 
 };
 

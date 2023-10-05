@@ -1,14 +1,9 @@
 import React from "react";
 
 const UsersList = async () => {
-  let users = [];
-  try {
-    const data = await fetch("http://localhost:3000/api/user");
+  const data = await fetch("http://127.0.0.1:3000/api/user");
 
-    users = await data.json();
-  } catch (error) {
-    console.log(error);
-  }
+  const users = await data.json();
 
   return (
     <>
