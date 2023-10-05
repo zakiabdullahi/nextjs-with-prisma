@@ -8,6 +8,7 @@ import prisma from "../../../prisma/client";
 export const GET = async (req) => {
 
     try {
+
         const usersInfo = await prisma.user.findMany();
         return NextResponse.json(usersInfo);
 

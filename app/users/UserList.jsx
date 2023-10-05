@@ -1,9 +1,11 @@
 import React from "react";
 
 const UsersList = async () => {
+  // @ts-ignore
   const data = await fetch("http://127.0.0.1:3000/api/user");
 
   const users = await data.json();
+  console.log(users);
 
   return (
     <>
