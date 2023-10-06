@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import React, { useTransition } from "react";
 import { getBaseUrl } from "../../app/util/baseUrl";
+export const dynamic = "force-dynamic";
 
 const DeleteButton = ({ id }) => {
   const [transition, startTransition] = useTransition();

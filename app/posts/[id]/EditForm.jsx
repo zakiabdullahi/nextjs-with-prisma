@@ -2,9 +2,11 @@
 import { CldUploadWidget } from "next-cloudinary";
 import { useRouter } from "next/navigation";
 import { startTransition, useState } from "react";
+import { getBaseUrl } from "../../util/baseUrl";
 export const dynamic = "force-dynamic";
 
 const EditForm = ({ post }) => {
+  const baseUrL = getBaseUrl();
   console.log(post);
   const [imageUrl, setImageUrl] = useState(post.url ? post.url : null);
   const [content, setContent] = useState(post.content ? post.content : null);
@@ -14,13 +16,10 @@ const EditForm = ({ post }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const registerPost = await fetch(
-      `${process.env.NEXT_PUBLIC_SITE_URL}/api/post/${post.id}`,
-      {
-        method: "PUT",
-        body: JSON.stringify({ title, content, url: imageUrl }),
-      }
-    );
+    const registerPost = await fetch(`${baseUrL}/api/post/${post.id}`, {
+      method: "PUT",
+      body: JSON.stringify({ title, content, url: imageUrl }),
+    });
 
     setContent("");
     setTitle("");
