@@ -1,8 +1,10 @@
+import { getBaseUrl } from "app/util/baseUrl";
 import React from "react";
 
 const UsersList = async () => {
+  const baseUrl = getBaseUrl();
   // @ts-ignore
-  const data = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/user`);
+  const data = await fetch(`${baseUrl}/api/user`);
 
   const users = await data.json();
   console.log(users);
