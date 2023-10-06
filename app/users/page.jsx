@@ -1,8 +1,8 @@
 import PostList from "../posts/PostList";
 import UsersList from "./UserList";
-export const dynamic = "force-dynamic";
 import { Suspense } from "react";
 
+export const dynamic = "force-dynamic";
 const UsersPage = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
