@@ -1,11 +1,13 @@
 import { Suspense } from "react";
 import NotFoundPost from "../not-found";
 import EditForm from "./EditForm";
+import { getBaseUrl } from "../../util/baseUrl";
+
+export const dynamic = "force-dynamic";
 
 const PostInfoPage = async ({ params }) => {
-  const data = await fetch(`http://127.0.0.1:3000/api/post/${params.id}`, {
-    cache: "no-store",
-  });
+  const baseURL = getBaseUrl();
+  const data = await fetch(`${baseURL}/api/post/${params.id}`);
 
   const post = data.ok ? await data.json() : null;
 

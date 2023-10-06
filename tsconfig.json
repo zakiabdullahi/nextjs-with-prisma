@@ -7,7 +7,11 @@
     "target": "es6",
     "moduleResolution": "node",
     "baseUrl": ".",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "skipLibCheck": true,
     "incremental": true,
     "esModuleInterop": true,
@@ -21,6 +25,12 @@
       }
     ]
   },
-  "include": ["next.config.js", "**/*.js", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next.config.js",
+    "**/*.js",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

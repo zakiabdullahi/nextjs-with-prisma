@@ -1,20 +1,14 @@
 import Link from "next/link";
-import React, { Suspense } from "react";
 import DeleteButton from "./DeleteButton";
 import UpdateButton from "./UpdateButton";
+import { getBaseUrl } from "../../app/util/baseUrl";
 
-const PostList = async () => {
-  let posts = [];
-  try {
-    // @ts-ignore
-    const data = await fetch("http://127.0.0.1:3000/api/post", {
-      cache: "no-store",
-    });
+export default async function PostList() {
+  const baseURL = getBaseUrl();
 
-    posts = await data.json();
-  } catch (error) {
-    console.log(error);
-  }
+  const data = await fetch(`${baseURL}/api/post`);
+
+  const posts = await data.json();
 
   return (
     <div className="flex flex-col justify-between items-center min-h-screen bg-gray-100">
@@ -42,6 +36,4 @@ const PostList = async () => {
       </ul>
     </div>
   );
-};
-
-export default PostList;
+}

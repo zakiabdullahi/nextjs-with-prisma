@@ -43,9 +43,7 @@ export async function POST(request) {
 
         } else {
 
-
             // @ts-ignore
-
             return NextResponse.json({ message: validation.error.errors }, { status: 400, });
 
         }
