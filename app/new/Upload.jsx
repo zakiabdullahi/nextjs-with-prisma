@@ -13,7 +13,7 @@ const Upload = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const registerPost = await fetch(`${baseUrl}api/post`, {
+    const registerPost = await fetch(`${baseUrl}/api/post`, {
       method: "POST",
       body: JSON.stringify({ title, content, url: imageUrl }),
     });
