@@ -1,9 +1,11 @@
 "use client";
+import { getBaseUrl } from "app/util/baseUrl";
 import { CldUploadWidget } from "next-cloudinary";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const Upload = () => {
+  const baseUrl = getBaseUrl();
   const [imageUrl, setImageUrl] = useState(null);
   const [content, setContent] = useState(null);
   const [title, setTitle] = useState(null);
@@ -11,7 +13,7 @@ const Upload = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const registerPost = await fetch("http://localhost:3000/api/post", {
+    const registerPost = await fetch(`${baseUrl}api/post`, {
       method: "POST",
       body: JSON.stringify({ title, content, url: imageUrl }),
     });
